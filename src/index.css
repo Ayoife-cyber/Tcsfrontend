@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #080608;
+  --color-gold: #d4af37;
+  --color-gold-dark: #a67c00;
+  --color-rose-gold: #e2b4b7;
+  --color-blush: #fcf1f2;
+  --color-champagne: #fae8d8;
+  --color-cream: #f9f6f0;
+  --color-charcoal: #141013;
+  --color-charcoal-light: #1e191c;
+
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+/* ─── Gold Divider ─────────────────────────────────────── */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ─── Skeleton Shimmer ─────────────────────────────────── */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #1c1c1c;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.12), transparent);
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* ─── Glassmorphism ────────────────────────────────────── */
+.glass {
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(21, 21, 21, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.04);
+  transform: translateY(-4px);
+}
+
+/* ─── Navbar Glow Border ───────────────────────────────── */
+.navbar-glow {
+  box-shadow:
+    0 1px 0 0 rgba(212, 175, 55, 0.12),
+    0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Gold Button Sweep ────────────────────────────────── */
+.btn-gold-glow {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transition: all 0.55s ease;
+}
+
+.btn-gold-glow:hover::after {
+  left: 100%;
+}
+
+/* ─── Nav Link Underline ───────────────────────────────── */
+.nav-link-premium {
+  position: relative;
+}
+
+.nav-link-premium::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-rose-gold), var(--color-gold));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-premium:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Gold Shimmer Heading ─────────────────────────────── */
+@keyframes shimmer-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #f9f6f0 0%,
+    #f9f6f0 38%,
+    #e2b4b7 46%,
+    #d4af37 54%,
+    #f9f6f0 62%,
+    #f9f6f0 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-position: 100% 0;
+  transition: letter-spacing 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
+}
+
+.gold-shimmer-text:hover {
+  animation: shimmer-sweep 2.5s linear infinite;
+  letter-spacing: 0.04em;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+}
+
+/* ─── Sparkle Animations ───────────────────────────────── */
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+  50%       { opacity: 1;   transform: scale(1.2) rotate(15deg); filter: drop-shadow(0 0 8px rgba(226, 180, 183, 0.8)); }
+}
+
+.animate-sparkle         { animation: sparkle-twinkle 3s ease-in-out infinite; }
+.animate-sparkle-delayed { animation: sparkle-twinkle 3.5s ease-in-out 1.2s infinite; }
+
+/* ─── Ambient Glow ─────────────────────────────────────── */
+.rose-gold-glow { box-shadow: 0 10px 30px -10px rgba(226, 180, 183, 0.25), 0 0 20px rgba(212, 175, 55, 0.1); }
+.rose-border-subtle { border-color: rgba(226, 180, 183, 0.2); }
+
+/* ─── Footer gradient top border ──────────────────────── */
+.footer-gradient-border {
+  border-top: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.footer-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(226,180,183,0.4) 30%, rgba(212,175,55,0.7) 50%, rgba(226,180,183,0.4) 70%, transparent 100%);
+}
+
+/* ─── Responsive Helpers ───────────────────────────────── */
+@media (max-width: 640px) {
+  .font-display { line-height: 1.15; }
+}
+
+/* ─── Scrollbar styling ────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-black); }
+::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.6); }
