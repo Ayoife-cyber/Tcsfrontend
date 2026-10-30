@@ -57,7 +57,6 @@ const HowItWorks = () => (
       </p>
     </div>
 
-    {/* Steps Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
       {steps.map((step) => (
         <div key={step.num} className="border border-gold/15 bg-charcoal/40 backdrop-blur-md p-8 rounded-xl text-center group hover:border-rose-gold/40 hover:-translate-y-2 transition-all duration-300">
@@ -71,7 +70,6 @@ const HowItWorks = () => (
       ))}
     </div>
 
-    {/* Guarantee Callout */}
     <div className="border border-rose-gold/20 bg-charcoal/50 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
@@ -88,7 +86,6 @@ const HowItWorks = () => (
             Start Browsing Silhouettes
           </Link>
 
-          {/* Direct contact anchor links */}
           <div className="flex flex-wrap gap-3 mt-5">
             <a
               href="https://wa.me/2348167473144"
